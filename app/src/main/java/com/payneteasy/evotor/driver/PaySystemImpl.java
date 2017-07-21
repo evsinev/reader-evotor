@@ -9,6 +9,8 @@ import ru.evotor.devices.drivers.paysystem.PayResult;
 /**
  * For the documentation please see the
  * https://github.com/evotor/device-drivers/blob/master/app/src/main/aidl/ru/evotor/devices/drivers/IPaySystemDriverService.aidl
+ *
+ * // todo The driver is not implemented yet. It always returns a success payment result.
  */
 public class PaySystemImpl implements IPaySystem {
 
