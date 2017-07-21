@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.payneteasy.evotor.miura">
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.payneteasy.evotor.ui.SettingsActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- see https://developer.evotor.ru/docs/doc_drivers_pinpads.html#section -->
+        <service
+            android:name="com.payneteasy.evotor.service.DriversManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="ru.evotor.devices.drivers.DriverManager" />
+                <action android:name="ru.evotor.devices.drivers.PaySystemService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="vendor_name"
+                android:value="Spire" />
+            <meta-data
+                android:name="model_name"
+                android:value="SPm2" />
+
+            <meta-data
+                android:name="settings_activity"
+                android:value="com.payneteasy.evotor.ui.SettingsActivity" />
+
+            <!-- устройство будет распознано как банковский терминал -->
+            <meta-data
+                android:name="device_categories"
+                android:value="PAYSYSTEM" />
+
+            <!-- Our terminal is connected via Bluetooth -->
+            <meta-data
+                android:name="virtual_device"
+                android:value="true" />
+
+        </service>
+
+    </application>
+
+</manifest>
