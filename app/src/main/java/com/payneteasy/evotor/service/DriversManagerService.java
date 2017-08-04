@@ -14,6 +14,7 @@ import com.payneteasy.evotor.stubs.VirtualDriverManagerServiceImpl;
 
 import static ru.evotor.devices.drivers.Constants.INTENT_FILTER_DRIVER_MANAGER;
 import static ru.evotor.devices.drivers.Constants.INTENT_FILTER_PAY_SYSTEM;
+import static ru.evotor.devices.drivers.Constants.INTENT_FILTER_VIRTUAL_DRIVER_MANAGER;
 
 public class DriversManagerService extends Service {
 
@@ -38,7 +39,7 @@ public class DriversManagerService extends Service {
         LOG.debug("onBind({})", intent);
 
         switch (intent.getAction()) {
-            case INTENT_FILTER_DRIVER_MANAGER:
+            case INTENT_FILTER_VIRTUAL_DRIVER_MANAGER:
                 return new VirtualDriverManagerServiceImpl(drivers);
 
             case INTENT_FILTER_PAY_SYSTEM:
